@@ -24,42 +24,42 @@ import java.util.List;
 /**
  * @since 1.10.0
  */
-class OidcProfile {
+public class OidcProfile {
 
     private String subject;
     private String username;
     private List<String> groups;
     private String email;
 
-    String getSubject() {
+    public String getSubject() {
         return subject;
     }
 
-    void setSubject(final String subject) {
+    public void setSubject(final String subject) {
         this.subject = subject;
     }
 
-    String getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    void setUsername(final String username) {
+    public void setUsername(final String username) {
         this.username = username;
     }
 
-    List<String> getGroups() {
+    public List<String> getGroups() {
         return groups;
     }
 
-    void setGroups(final List<String> groups) {
+    public void setGroups(final List<String> groups) {
         this.groups = groups;
     }
 
-    String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    void setEmail(final String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 

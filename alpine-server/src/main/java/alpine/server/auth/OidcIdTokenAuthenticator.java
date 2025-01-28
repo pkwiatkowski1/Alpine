@@ -38,7 +38,7 @@ import java.text.ParseException;
 /**
  * @since 1.10.0
  */
-class OidcIdTokenAuthenticator {
+public class OidcIdTokenAuthenticator {
 
     private static final Logger LOGGER = Logger.getLogger(OidcIdTokenAuthenticator.class);
     static final String JWK_SET_CACHE_KEY = "OIDC_JWK_SET";
@@ -46,12 +46,12 @@ class OidcIdTokenAuthenticator {
     private final OidcConfiguration configuration;
     private final String clientId;
 
-    OidcIdTokenAuthenticator(final OidcConfiguration configuration, final String clientId) {
+    public OidcIdTokenAuthenticator(final OidcConfiguration configuration, final String clientId) {
         this.configuration = configuration;
         this.clientId = clientId;
     }
 
-    OidcProfile authenticate(final String idToken, final OidcProfileCreator profileCreator) throws AlpineAuthenticationException {
+    public OidcProfile authenticate(final String idToken, final OidcProfileCreator profileCreator) throws AlpineAuthenticationException {
         final SignedJWT parsedIdToken;
         try {
             parsedIdToken = SignedJWT.parse(idToken);

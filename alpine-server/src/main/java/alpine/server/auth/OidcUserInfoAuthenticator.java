@@ -32,17 +32,17 @@ import java.io.IOException;
 /**
  * @since 1.10.0
  */
-class OidcUserInfoAuthenticator {
+public class OidcUserInfoAuthenticator {
 
     private static final Logger LOGGER = Logger.getLogger(OidcUserInfoAuthenticator.class);
 
     private final OidcConfiguration configuration;
 
-    OidcUserInfoAuthenticator(final OidcConfiguration configuration) {
+    public OidcUserInfoAuthenticator(final OidcConfiguration configuration) {
         this.configuration = configuration;
     }
 
-    OidcProfile authenticate(final String accessToken, final OidcProfileCreator profileCreator) throws AlpineAuthenticationException {
+    public OidcProfile authenticate(final String accessToken, final OidcProfileCreator profileCreator) throws AlpineAuthenticationException {
         final UserInfoResponse userInfoResponse;
         try {
             HTTPRequest httpRequest = new UserInfoRequest(configuration.getUserInfoEndpointUri(), new BearerAccessToken(accessToken)).toHTTPRequest();
@@ -59,7 +59,7 @@ class OidcUserInfoAuthenticator {
         } catch (com.nimbusds.oauth2.sdk.ParseException e) {
             LOGGER.error("Parsing UserInfo response failed", e);
             throw new AlpineAuthenticationException(AlpineAuthenticationException.CauseType.OTHER);
-        }
+		}
 
         if (!userInfoResponse.indicatesSuccess()) {
             final var error = userInfoResponse.toErrorResponse().getErrorObject();
